@@ -47,7 +47,7 @@ def b_c(text): #функция для кнопки "C"
 
 def b_negative_positive(): #функция для кнопки "-/+"
     text = evan(text)
-    if text = 0:
+    if text == 0:
         text = "0"
     elif text > 0:
         text = text - (text * 2)
@@ -56,32 +56,63 @@ def b_negative_positive(): #функция для кнопки "-/+"
         text = text * (-1)
         text = str(text)
 
+#спец-функции
+def svet_tma():
+    if setting_button1.text() == "💡":
+        setting_button1.setText("🌑")
+        main_win.setStyleSheet("background-color: darkgray;") #функция для смены цвета
+        setting_button2.setStyleSheet('QPushButton {color: white;}')  
+        setting_button3.setStyleSheet('QPushButton {color: white;}')
+    elif setting_button1.text() == "🌑":
+        setting_button1.setText("💡")
+        main_win.setStyleSheet("background-color: white;") #функция для смены цвета
+        setting_button2.setStyleSheet('QPushButton {color: dark;}')  
+        setting_button3.setStyleSheet('QPushButton {color: dark;}')      
+
+def russ_engl():
+    if setting_button2.text() == "РУССКИЙ":
+        setting_button2.setText("ENGLISH")
+        setting_button3.setText("CONTACT DEVELOPERS")
+        main_win.setWindowTitle("Kiparh calculator")
+    elif setting_button2.text() == "ENGLISH":
+        setting_button2.setText("РУССКИЙ")
+        setting_button3.setText("СВЯЗАТЬСЯ С РАЗРАБОТЧИКАМИ")
+        main_win.setWindowTitle("Kiparh калькулятор")         
+
 def calculator(): #фунуция класического калькулятора
-    button_1.clicked.connect(b_1)
-    button_2.clicked.connect(b_2)
-    button_3.clicked.connect(b_3)
-    button_4.clicked.connect(b_4)
-    button_5.clicked.connect(b_5)
-    button_6.clicked.connect(b_6)
-    button_7.clicked.connect(b_7)
-    button_8.clicked.connect(b_8)
-    button_9.clicked.connect(b_9)
-    button_plus.clicked.connect(b_pl)
-    button_minus.clicked.connect(b_mi)
-    button_multiply.clicked.connect(b_mu)
-    button_divide.clicked.connect(b_d)
-    button_smooth.clicked.connect(b_s)
-    button_c.clicked.connect(b_c)
-    button_negative_positive.clicked.connect(b_negative_positive)
+    while True:
+        button_1.clicked.connect(b_1)
+        button_2.clicked.connect(b_2)
+        button_3.clicked.connect(b_3)
+        button_4.clicked.connect(b_4)
+        button_5.clicked.connect(b_5)
+        button_6.clicked.connect(b_6)
+        button_7.clicked.connect(b_7)
+        button_8.clicked.connect(b_8)
+        button_9.clicked.connect(b_9)
+        button_plus.clicked.connect(b_pl)
+        button_minus.clicked.connect(b_mi)
+        button_multiply.clicked.connect(b_mu)
+        button_divide.clicked.connect(b_d)
+        button_smooth.clicked.connect(b_s)
+        button_c.clicked.connect(b_c)
+        button_negative_positive.clicked.connect(b_negative_positive)
+        if text[-1] == "=":
+            text = eval(text)
+            break
 
 def even_odd(): #функция проверки чётности числа
-    button_1.clicked.connect(b_1)
-    button_2.clicked.connect(b_2)
-    button_3.clicked.connect(b_3)
-    button_4.clicked.connect(b_4)
-    button_5.clicked.connect(b_5)
-    button_6.clicked.connect(b_6)
-    button_7.clicked.connect(b_7)
-    button_8.clicked.connect(b_8)
-    button_9.clicked.connect(b_9)
-    button_smooth.clicked.connect(b_even_odd)
+    while True: 
+        button_1.clicked.connect(b_1)
+        button_2.clicked.connect(b_2)
+        button_3.clicked.connect(b_3)
+        button_4.clicked.connect(b_4)
+        button_5.clicked.connect(b_5)
+        button_6.clicked.connect(b_6)
+        button_7.clicked.connect(b_7)
+        button_8.clicked.connect(b_8)
+        button_9.clicked.connect(b_9)
+        button_smooth.clicked.connect(b_even_odd)
+        if text[-1] == "=":
+            text = eval(text)
+            break
